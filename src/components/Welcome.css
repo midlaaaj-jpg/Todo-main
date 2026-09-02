@@ -1,0 +1,15 @@
+.welcome {
+  min-height: calc(100vh - 60px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+}
+
+.welcome h1 {
+  font-size: 50px;
+
+  text-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+}
