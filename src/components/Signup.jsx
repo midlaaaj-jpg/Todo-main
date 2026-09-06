@@ -25,10 +25,13 @@ const Signup = () => {
       return;
     }
     alert("Account created successfully!");
+    localStorage.setItem('name',formData.name);
 
-    localStorage.setItem('mail',formData.mail);
+    localStorage.setItem('mail',formData.email);
 
     localStorage.setItem('pass',formData.password);
+    localStorage.setItem('confrm',formData.confirmPassword);
+
   };
 
   return (
