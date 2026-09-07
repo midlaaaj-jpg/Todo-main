@@ -1,5 +1,8 @@
 import { useState } from "react";
 import "./Login.css";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 
 const Login = () => {
 const [formData,setFormData]=useState({
@@ -7,17 +10,36 @@ const [formData,setFormData]=useState({
   password:""
 
 })
+const navigate = useNavigate();
 console.log(formData);
 const handleChange =(event)=>{
   setFormData((prev)=>({...prev,[event.target.name]:event.target.value}))
 }
+
   const handleSubmit = (event) => {
     event.preventDefault();
-//  localStorage.setItem.email;
-//  localStorage.setItem.password;
-localStorage.setItem("email", formData.email);
-localStorage.setItem("password", formData.password);
+// localStorage.getItem("email", formData.email);
+let users=localStorage.getItem("users");
+users=JSON.parse(users);
+const sucessfull=users.find(
+  (user)=>
+    user.email ===formData.email &&
+    user.password === formData.password
+);
+  
+  if (sucessfull) {
+    alert("login sucessfull");
+    navigate("/welcome");
+  }
+  else(
+    alert("no user exist")
+  )
+  setFormData({
+  email: "",
+  password: ""
+});
   };
+ 
 
   return (
     <div className="login-page">
@@ -49,6 +71,7 @@ localStorage.setItem("password", formData.password);
           <button id="button" type="submit">
             Login
           </button>
+          <Link to="/signup" className="cr">Create An Account</Link>
 
         </form>
       </div>
