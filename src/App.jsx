@@ -12,7 +12,8 @@ function App() {
       <Navbar />
 
       <Routes>
-        <Route path="/welcome" element={<Welcome />} />
+        
+        <Route path="/welcome" element={<Welcome/>} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/logout" element={<Logout/>}/>
